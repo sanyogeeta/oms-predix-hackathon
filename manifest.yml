@@ -1,0 +1,19 @@
+---
+applications:
+- name: oms-sso-predixhackathon
+  memory: 128M
+  buildpack: nodejs_buildpack
+  #command:  DEBUG=express:* node app.js
+  command:  node app.js
+  services:
+  - OMS-secure-uaa-instance
+ # - <your-name>-timeseries-instance
+ # - <your-name>-asset-instance
+env:
+    node_env: cloud
+    uaa_service_label : predix-uaa
+    clientId: omsclientid
+    base64ClientCredential: b21zY2xpZW50aWQ6b21zY2xpZW50c2VjcmV0
+    # Following properties configured only for Timeseries WindData service Integration
+    #windServiceUrl: "{URL of the microservice <your-name>-winddata-timeseries-service}, e.g.  https://your-name-winddata-timeseries-service.run.asw-usw02-pr.predix.io"
+    #assetMachine: my-type
